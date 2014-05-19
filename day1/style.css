@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    background: #87ceeb;
+}
+#game {
+
+}
+.board {
+    background: #ccc;
+    position: relative;
+    margin: 0 auto;
+}
+.piece {
+    border-radius: 38px;
+    position: absolute;
+    text-align: center;
+    line-height: 76px;
+    cursor: pointer;
+}
+.unset {
+    background: #fff;
+}
+.player1 {
+    background-color: #f00;
+}
+.player2 {
+    background-color: #ff0;
+}
+.message {
+    font-size: 3em;
+    color: white;
+    position: absolute;
+    top: 1em;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    background: rgba(55, 55, 55, 0.7);
+}
