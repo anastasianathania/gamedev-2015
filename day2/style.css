@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    background-color: #87ceeb;
+}
+#container {
+    margin: 2em auto;
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+#layer1, #layer2, #layer3 {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#layer1 {
+    z-index: 101;
+}
+#layer2 {
+    z-index: 102;
+}
+#layer3 {
+    z-index: 103;
+    
+}
