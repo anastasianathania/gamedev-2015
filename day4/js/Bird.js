@@ -15,8 +15,23 @@ function Bird(game, stage) {
 
     this.color = "#f00";
 
-    this.stage.addEventListener('click', this.flap.bind(this));
+    this.sprite = new Sprite('./img/birdie.png', {
+        x: this.x,
+        y: this.y,
+        height: this.height,
+        cellHeight: 168,
+        width: this.width,
+        cellWidth: 183,
+        rows: 1,
+        cols: 14,
+        cellOffsetX: -60,
+        cellOffsetY: -60,
+    });
+    this.sprite.scaleX = 0.5;
+    this.sprite.scaleY = 0.5;
 
+    this.stage.addEventListener('click', this.flap.bind(this));
+    this.sprite.play(0);
 }
 
 Bird.prototype.flap = function () {
@@ -40,14 +55,15 @@ Bird.prototype.update = function (delta) {
         this.y = -this.height;
         this.velocityY = 0;
     }
+
+    this.sprite.x = this.x - this.width / 2;
+    this.sprite.y = this.y - this.height / 2;
+
+    //update rotation
+    this.sprite.rotation = this.velocityY / this.terminalVelocity;
 };
 
 Bird.prototype.draw = function (ctx) {
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.height / 2, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
-    ctx.fill();
-    ctx.closePath();
-    ctx.restore();
+    this.sprite.draw(ctx);
+    
 };

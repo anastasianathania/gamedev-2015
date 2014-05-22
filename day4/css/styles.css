@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    background: #87ceeb;
+}
+#container {
+    width: 320px;
+    height: 480px;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+}
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 480px;
+    z-index: 1;
+    background-image: url('../img/stardust.png');
+}
+#cloud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    z-index: 2;
+}
+#stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    z-index: 3;
+}
+#score {
+    font-size: 3em;
+    color: #ff0;
+    top: 0;
+    right: 10px;
+    align: right;
+    position: absolute;
+    z-index: 4;
+}
