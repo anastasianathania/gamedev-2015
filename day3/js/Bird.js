@@ -10,7 +10,7 @@ function Bird(game, stage) {
     this.y = 50;
 
     this.velocityY = 0;
-    this.terminalVelocity = 400;
+    this.terminalVelocity = 350;
     this.gravity = 1000;
 
     this.color = "#f00";

@@ -7,17 +7,27 @@ function Collider(bird, pipes) {
     this.rightX = this.bird.x + this.bird.width / 2;
 }
 Collider.prototype.checkCollision = function () {
-    var i, pipe, pipeRightX;
+    /*
+    return
+        -1 if collide;
+        1 if pass a pipe;
+        0 otherwise;
+    */
+    var i, pipe, pipeRightX, ret = 0;
     for (i = 0; i < this.pipes.length; i++) {
         pipe = this.pipes[i];
         pipeRightX = pipe.x + pipe.width;
-        if ((pipe.x < this.rightX && pipeRightX > this.leftX)
-                && ((this.bird.y - this.bird.height / 2) < (pipe.y - pipe.gapHeight)
-                || (this.bird.y + this.bird.height / 2) > pipe.y)
-                ) {
-            pipe.color = "#f00";
+        if (pipe.x < this.rightX && pipeRightX > this.leftX) {
+            if ((this.bird.y - this.bird.height / 2) < (pipe.y - pipe.gapHeight)
+                    || (this.bird.y + this.bird.height / 2) > pipe.y) {
+                pipe.color = "#f00";
+                ret = -1;
+            } else {
+                ret = 1;
+            }
         } else {
             pipe.color = "#0f0";
         }
     }
+    return ret;
 };
